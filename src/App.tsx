@@ -1,7 +1,13 @@
 import React from 'react';
+import GlobalStyles from './styles/GlobalStyles';
 
 const App = () => {
-  return <h1>world hold on</h1>;
+  return (
+    <>
+      <GlobalStyles />
+      <h1>world hold on</h1>
+    </>
+  );
 };
 
 export default App;
