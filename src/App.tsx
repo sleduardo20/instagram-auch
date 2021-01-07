@@ -1,11 +1,13 @@
 import React from 'react';
 import GlobalStyles from './styles/GlobalStyles';
 
-const App = () => {
+import SignIn from './pages/SignIn';
+
+const App: React.FC = () => {
   return (
     <>
       <GlobalStyles />
-      <h1>world hold on</h1>
+      <SignIn />
     </>
   );
 };
