@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
+import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
 
 import bg from '../../assets/img/bg.png';
 import logo from '../../assets/img/logo.png';
-import Button from '../../components/Button';
 
+import Button from '../../components/Button';
 import Input from '../../components/Input';
 
 import * as S from './styles';
 
 const SignIn: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
+
+  const handleSubmit = useCallback(data => {
+    console.log({ data });
+  }, []);
   return (
     <S.Container>
       <S.Main>
@@ -19,15 +26,15 @@ const SignIn: React.FC = () => {
           <S.Login>
             <img src={logo} alt="instagram logo" />
 
-            <form>
+            <Form ref={formRef} onSubmit={handleSubmit}>
               <Input
                 name="user"
                 placeholder="Telefone, nome de usuário ou email"
               />
-              <Input name="password" placeholder="Senha" />
+              <Input name="password" placeholder="Senha" type="password" />
 
-              <Button title="Entrar" />
-            </form>
+              <Button title="Entrar" type="submit" />
+            </Form>
           </S.Login>
           <S.Register>
             <p>
