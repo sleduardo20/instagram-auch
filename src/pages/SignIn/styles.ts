@@ -8,7 +8,7 @@ export const Main = styled.main`
   max-width: 93.5rem;
   margin: 6rem auto 0 auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 `;
 
@@ -22,11 +22,16 @@ export const TopLeft = styled.div`
 
 export const TopRigth = styled.div`
   max-width: 35rem;
+  margin-top: 3.2rem;
+  padding: 3.2rem 2.8rem 1.2rem 2.8rem;
   height: 100%;
   background-color: #fafafa;
+  border-radius: 0.4rem;
+  border: 1px solid #b7b7b7;
 
   img {
     width: 17.5rem;
+    margin-bottom: 4.8rem;
   }
 `;
 
@@ -38,7 +43,11 @@ export const Login = styled.div`
   justify-content: center;
 
   form {
-    width: 30rem;
+    width: 100%;
+
+    div {
+      margin-bottom: 0.8rem;
+    }
   }
 `;
 

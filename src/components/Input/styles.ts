@@ -15,7 +15,7 @@ export const Container = styled.div<ContainerProps>`
   align-items: center;
   justify-content: space-between;
   border: ${({ isFocused }) =>
-    isFocused ? '1px solid #B9B9B9' : '1px solid #EAEAEA'};
+    isFocused ? '1px solid #8F8F8F' : '1px solid #B7B7B7'};
 
   button {
     width: 10rem;
