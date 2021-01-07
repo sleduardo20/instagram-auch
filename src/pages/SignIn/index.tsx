@@ -3,6 +3,8 @@ import React from 'react';
 import bg from '../../assets/img/bg.png';
 import logo from '../../assets/img/logo.png';
 
+import Input from '../../components/Input';
+
 import * as S from './styles';
 
 const SignIn: React.FC = () => {
@@ -17,12 +19,13 @@ const SignIn: React.FC = () => {
             <img src={logo} alt="instagram logo" />
 
             <form>
-              <input
-                type="text"
+              <Input
+                name="user"
                 placeholder="Telefone, nome de usuário ou email"
               />
-              <input type="text" placeholder="Senha" />
-              <button type="button">Entrar</button>
+              <Input name="password" placeholder="Senha" />
+
+              {/* <button type="button">Entrar</button> */}
             </form>
           </S.Login>
           <S.Register>

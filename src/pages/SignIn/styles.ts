@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  background-color: #f3f3f3;
+`;
 
 export const Main = styled.main`
   max-width: 93.5rem;
@@ -21,6 +23,7 @@ export const TopLeft = styled.div`
 export const TopRigth = styled.div`
   max-width: 35rem;
   height: 100%;
+  background-color: #fafafa;
 
   img {
     width: 17.5rem;
