@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.button`
   width: 100%;
   height: 3.2rem;
 
@@ -16,10 +16,7 @@ export const Container = styled.div`
     color: #ffff;
   }
 
-  button {
-    width: 100%;
-    cursor: pointer;
-    background: none;
-    padding: 0.4rem;
-  }
+  cursor: pointer;
+
+  padding: 0.4rem;
 `;

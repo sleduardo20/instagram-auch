@@ -4,6 +4,9 @@ import { FormHandles } from '@unform/core';
 
 import bg from '../../assets/img/bg.png';
 import logo from '../../assets/img/logo.png';
+import logoFacebook from '../../assets/img/facebook.png';
+import googleStore from '../../assets/img/googlestore.png';
+import appleStore from '../../assets/img/applestore.png';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -36,18 +39,27 @@ const SignIn: React.FC = () => {
 
               <Button title="Entrar" type="submit" />
             </Form>
+            <S.Divider>
+              <span>OU</span>
+            </S.Divider>
+
+            <strong>
+              <img src={logoFacebook} alt="Facebook" /> Entrar com o Facebook
+            </strong>
+            <a href="https://#">Esqueceu a senha?</a>
           </S.Login>
+
           <S.Register>
             <p>
-              Não tem uma conta? <strong>Cadastre-se</strong>
+              Não tem uma conta? <a href="https://#">Cadastre-se</a>
             </p>
           </S.Register>
 
           <S.Apps>
             <span>Obtenha o aplicativo</span>
             <S.GroupButtonApps>
-              <S.Button />
-              <S.Button />
+              <S.Button image={appleStore} />
+              <S.Button image={googleStore} />
             </S.GroupButtonApps>
           </S.Apps>
         </S.TopRigth>
