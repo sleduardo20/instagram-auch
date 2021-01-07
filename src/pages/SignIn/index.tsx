@@ -29,9 +29,10 @@ const SignIn: React.FC = () => {
             <Form ref={formRef} onSubmit={handleSubmit}>
               <Input
                 name="user"
+                type="text"
                 placeholder="Telefone, nome de usuário ou email"
               />
-              <Input name="password" placeholder="Senha" type="password" />
+              <Input name="password" placeholder="Senha" />
 
               <Button title="Entrar" type="submit" />
             </Form>

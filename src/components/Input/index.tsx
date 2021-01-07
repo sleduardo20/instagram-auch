@@ -12,12 +12,11 @@ import * as S from './styles';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  type?: string;
 }
 
-const Input: React.FC<InputProps> = ({ name, type = 'text', ...rest }) => {
+const Input: React.FC<InputProps> = ({ name, ...rest }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [showMe, setShowMe] = useState(false);
+  const [passwordShow, setPasswordShow] = useState(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -32,15 +31,15 @@ const Input: React.FC<InputProps> = ({ name, type = 'text', ...rest }) => {
   }, [registerField, fieldName]);
 
   const handelOnFocus = useCallback(() => {
-    setIsFocused(true);
-  }, []);
+    setIsFocused(!passwordShow);
+  }, [passwordShow]);
 
   const handleBlur = useCallback(() => {
     setIsFocused(false);
   }, []);
 
   const handleShowPassword = useCallback(() => {
-    setShowMe(state => !state);
+    setPasswordShow(state => !state);
   }, []);
 
   return (
@@ -50,11 +49,13 @@ const Input: React.FC<InputProps> = ({ name, type = 'text', ...rest }) => {
         name={name}
         onFocus={handelOnFocus}
         onBlur={handleBlur}
+        type={passwordShow ? 'text' : 'password'}
         {...rest}
       />
+
       {name === 'password' && (
         <button onClick={handleShowPassword} type="button">
-          {showMe ? 'Ocultar' : 'Mostrar'}
+          {passwordShow ? 'Ocultar' : 'Mostrar'}
         </button>
       )}
     </S.Container>
