@@ -16,7 +16,7 @@ const globalStyles = createGlobalStyle`
     width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgba(250,250,250,1);
+    background-color: #f3f3f3;
   }
 
   button{
