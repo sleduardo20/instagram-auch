@@ -11,14 +11,24 @@ import appleStore from '../../assets/img/applestore.png';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 
+import { useAuth, User } from '../../hooks/useAuth';
+
 import * as S from './styles';
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback(data => {
-    console.log({ data });
-  }, []);
+  const { signIn } = useAuth();
+
+  const handleSubmit = useCallback(
+    async (data: User) => {
+      await signIn({
+        name: data.name,
+        password: data.password,
+      });
+    },
+    [signIn],
+  );
   return (
     <S.Container>
       <S.Main>
@@ -31,7 +41,7 @@ const SignIn: React.FC = () => {
 
             <Form ref={formRef} onSubmit={handleSubmit}>
               <Input
-                name="user"
+                name="name"
                 type="text"
                 placeholder="Telefone, nome de usuário ou email"
               />
