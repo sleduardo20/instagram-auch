@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Container = styled.div`
   background-color: #f3f3f3;
@@ -19,6 +20,10 @@ export const TopLeft = styled.div`
   img {
     width: 100%;
   }
+
+  ${media.lessThan('medium')`
+    display: none;
+  `}
 `;
 
 export const TopRigth = styled.div`
