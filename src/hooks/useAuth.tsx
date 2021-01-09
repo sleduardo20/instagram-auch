@@ -18,13 +18,12 @@ const AuthConextProvider: React.FC = ({ children }) => {
 
   const signIn = useCallback((data: User) => {
     localStorage.setItem('name', data.name);
-    localStorage.setItem('password', data.password);
     setUser(data);
   }, []);
 
   const signOut = useCallback(() => {
     localStorage.removeItem('name');
-    localStorage.removeItem('password');
+    setUser(null);
   }, []);
 
   return (

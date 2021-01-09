@@ -14,11 +14,12 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
 }
 
-const Input: React.FC<InputProps> = ({ name, ...rest }) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [passwordShow, setPasswordShow] = useState(false);
-
+const Input: React.FC<InputProps> = ({ name, placeholder, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const [isFocused, setIsFocused] = useState(false);
+  const [isFilled, setFilled] = useState(false);
+  const [passwordShow, setPasswordShow] = useState(false);
 
   const { fieldName, registerField } = useField(name);
 
@@ -31,10 +32,16 @@ const Input: React.FC<InputProps> = ({ name, ...rest }) => {
   }, [registerField, fieldName]);
 
   const handelOnFocus = useCallback(() => {
-    setIsFocused(!passwordShow);
-  }, [passwordShow]);
+    setIsFocused(true);
+  }, []);
 
   const handleBlur = useCallback(() => {
+    if (inputRef.current?.value) {
+      setFilled(true);
+    } else {
+      setFilled(false);
+    }
+
     setIsFocused(false);
   }, []);
 
@@ -43,7 +50,8 @@ const Input: React.FC<InputProps> = ({ name, ...rest }) => {
   }, []);
 
   return (
-    <S.Container isFocused={isFocused}>
+    <S.Container isFocused={isFocused} isFilled={isFilled}>
+      <label htmlFor={name}>{placeholder}</label>
       <input
         ref={inputRef}
         name={name}
