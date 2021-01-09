@@ -18,7 +18,7 @@ const Input: React.FC<InputProps> = ({ name, placeholder, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
-  const [isFilled, setFilled] = useState(false);
+  const [isFilled, setIsFilled] = useState(false);
   const [passwordShow, setPasswordShow] = useState(false);
 
   const { fieldName, registerField } = useField(name);
@@ -36,13 +36,15 @@ const Input: React.FC<InputProps> = ({ name, placeholder, ...rest }) => {
   }, []);
 
   const handleBlur = useCallback(() => {
-    if (inputRef.current?.value) {
-      setFilled(true);
-    } else {
-      setFilled(false);
-    }
-
     setIsFocused(false);
+  }, []);
+
+  const handleFilled = useCallback(text => {
+    if (text) {
+      setIsFilled(true);
+    } else {
+      setIsFilled(false);
+    }
   }, []);
 
   const handleShowPassword = useCallback(() => {
@@ -58,10 +60,11 @@ const Input: React.FC<InputProps> = ({ name, placeholder, ...rest }) => {
         onFocus={handelOnFocus}
         onBlur={handleBlur}
         type={passwordShow ? 'text' : 'password'}
+        onChange={e => handleFilled(e.target.value)}
         {...rest}
       />
 
-      {name === 'password' && (
+      {name === 'password' && isFilled && (
         <button onClick={handleShowPassword} type="button">
           {passwordShow ? 'Ocultar' : 'Mostrar'}
         </button>
