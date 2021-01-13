@@ -3,7 +3,7 @@
 <p align="center">
   <a href="" rel="noopener">
  
-  <img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://raw.githubusercontent.com/sleduardo20/instagram-auch/main/public/readme.png" width="685" height="426">
+  <img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://raw.githubusercontent.com/sleduardo20/instagram-auch/main/public/readme.png">
   </a>
   
   </br>
